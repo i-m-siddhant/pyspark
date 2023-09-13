@@ -41,11 +41,13 @@
 
     #prints the schema
     df_pyspark.printSchema()
+    
     ```
 
 ## Part 1 - Basics
 
     ```python
+
     #Do the same to initialize the spark as above
     #Read the dataset
     df_pyspark = spark.read.option('header', 'true').csv('test1.csv', inferSchema=True) or spark.read.csv('test1.csv', header=True, inferSchmea=True)
