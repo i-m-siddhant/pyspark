@@ -24,61 +24,61 @@
 
     ```python
 
-    from pyspark.sql import SparkSession
-    spark = SparkSession.builder.appName('Practise').getOrCreate()
-    spark  #Prints spark
+        from pyspark.sql import SparkSession
+        spark = SparkSession.builder.appName('Practise').getOrCreate()
+        spark  #Prints spark
 
     ```
 ## Reading a dataset and more
 
     ```python
 
-    df_pyspark = spark.read.csv("test1.csv")
-    #another way to read this
-    spark.read.option('header', 'true').csv("test1.csv")
-    df_pyspark  #prints csv file
-    df_pyspark.show() 
+        df_pyspark = spark.read.csv("test1.csv")
+        #another way to read this
+        spark.read.option('header', 'true').csv("test1.csv")
+        df_pyspark  #prints csv file
+        df_pyspark.show() 
 
-    #prints the schema
-    df_pyspark.printSchema()
-    
+        #prints the schema
+        df_pyspark.printSchema()
+
     ```
 
 ## Part 1 - Basics
 
     ```python
 
-    #Do the same to initialize the spark as above
-    #Read the dataset
-    df_pyspark = spark.read.option('header', 'true').csv('test1.csv', inferSchema=True) or spark.read.csv('test1.csv', header=True, inferSchmea=True)
-    type(df_pyspark) #data frame
+        #Do the same to initialize the spark as above
+        #Read the dataset
+        df_pyspark = spark.read.option('header', 'true').csv('test1.csv', inferSchema=True) or spark.read.csv('test1.csv', header=True, inferSchmea=True)
+        type(df_pyspark) #data frame
 
-    #To get the columns
-    df_pyspark.columns()
-    
-    #To get the first 3 rows
-    df_pyspark.head(3)
+        #To get the columns
+        df_pyspark.columns()
+        
+        #To get the first 3 rows
+        df_pyspark.head(3)
 
-    #To get only one column
-    df_pyspark.select('Name').show()
+        #To get only one column
+        df_pyspark.select('Name').show()
 
-    #To get multiple column
-    df_pyspark.select('Name1', 'Name2').show()
+        #To get multiple column
+        df_pyspark.select('Name1', 'Name2').show()
 
-    #To check the data types of the columns
-    df_pyspark.dtypes
+        #To check the data types of the columns
+        df_pyspark.dtypes
 
-    #Describe
-    df_pyspark.describe().show()
+        #Describe
+        df_pyspark.describe().show()
 
-    #Adding columns in data frame which will have value as oldColumnName value + 2
-    df_pyspark.withColumn('newColumnName', df_pyspark['oldColumnName'] + 2)
+        #Adding columns in data frame which will have value as oldColumnName value + 2
+        df_pyspark.withColumn('newColumnName', df_pyspark['oldColumnName'] + 2)
 
-    #Drop the columns in data frame
-    df_pyspark.drop('columnName')
+        #Drop the columns in data frame
+        df_pyspark.drop('columnName')
 
-    #Rename the columns
-    df_pyspark.withColumnRenamed('oldName', 'newName')
+        #Rename the columns
+        df_pyspark.withColumnRenamed('oldName', 'newName')
 
 
     
