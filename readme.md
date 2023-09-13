@@ -83,3 +83,38 @@
 
     
     ```
+
+## Day 2 
+
+    ```python
+
+        df_pyspark.na.drop().show()
+
+        #using how - any or all
+        #thresh=x- row should contain atleast x non null values to not get deleted
+        #subset will check in only mentioned columns
+        df_pyspark.na.drop(how="all or any", thresh=2, subset=['columnName']).show()
+    
+        #Filling the null values with missing values
+        df_pyspark.na.fill("Missing values").show()
+
+        #Filter operations
+        df_pyspark.filter("columnName<=2000").show()      
+        df_pyspark.filter("columnName<=2000").select(['Name', 'Age']).show()
+        df_pyspark.filter("col1 < 10 &,| col2 > 12").show()
+        df_pyspark.filter(~(df_pyspark["colName"] == 1000)).show()
+
+        #Pyspark GroupBy and Aggregrate Functions
+
+        df_pyspark.groupBy('Name').sum().show()
+
+        #Groupby Departments which gives mean salary
+        df_pyspark.groupBy('Departments').mean().show()
+
+        #Groupby Departments which gives count of the departments
+        df_pyspark.groupBy('Departments').mean().show()
+
+        #Directly applying aggregrate functions
+        df_pyspark.agg({'Salary':'sum'}).show()
+
+    ```
