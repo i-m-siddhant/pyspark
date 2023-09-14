@@ -86,7 +86,7 @@
 
 ## Day 2 
 
-    ```python
+```python
 
         df_pyspark.na.drop().show()
 
@@ -117,7 +117,7 @@
         #Directly applying aggregrate functions
         df_pyspark.agg({'Salary':'sum'}).show()
 
-    ```
+```
 
 ## Task - I have a reducer code written in php, I need to convert it into pyspark job.
 
