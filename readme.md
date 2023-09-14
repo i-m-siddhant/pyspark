@@ -41,12 +41,12 @@
 
         #prints the schema
         df_pyspark.printSchema()
-        
+
 ```
 
 ## Part 1 - Basics
 
-    ```python
+```python
 
         #Do the same to initialize the spark as above
         #Read the dataset
@@ -80,9 +80,7 @@
         #Rename the columns
         df_pyspark.withColumnRenamed('oldName', 'newName')
 
-
-    
-    ```
+```
 
 ## Day 2 
 
