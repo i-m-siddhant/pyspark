@@ -150,3 +150,50 @@
     #Stopping spark session
     spark.stop()
 ```
+
+
+## Difference between python and pyspark
+
+```python
+
+    #In python 
+    import pandas as pd
+    df = pd.read_csv("data.csv")
+
+    #In pyspark
+    from pyspark.sql import SparkSession
+    spark = SparkSession.builder.appName("example").getOrCreate()
+    df = spark.read.csv('data.csv', inferSchema=True, header=True)
+
+    #In Python
+    print(df.head())
+
+    #In PySpark
+    df.show(5)
+
+    #In Python
+    print(df.tail())
+
+    #In PySpark
+    df.take(5)
+
+    #Filtering a DataFrame based on a condition:
+    #In Python
+    df[df['column_name'] > value]
+
+    #In PySpark
+    df.filter(df['column_name'] > value)
+
+    
+    #Grouping a DataFrame by a specific column and computing aggregate statistics:
+
+    #In Python
+    df.groupby('column_name').agg({'column_name': 'mean'})
+
+    #In PySpark
+    df.groupBy('column_name').agg({'column_name': 'mean'})
+
+```
+
+### [A good article on difference between python and spark job](https://medium.com/@rahul.singh.ds20/convert-python-to-pyspark-1dbddcc562d8)
+
