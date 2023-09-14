@@ -118,3 +118,37 @@
         df_pyspark.agg({'Salary':'sum'}).show()
 
     ```
+
+## Task - I have a reducer code written in php, I need to convert it into pyspark job.
+
+* Setup Spark 
+* Importing spark libraries - 
+
+```python 
+
+    #Import spark libraries
+
+    from pyspark.sql import SparkSession
+    spark = SparkSession.builder.appName("Reducer To Spark").getOrCreate()
+
+    #Reading the input data
+
+    input_data = spark.read.text("input_file.txt")
+
+    #Defining the Reducer logic
+    from pyspark.sql.functions import col
+    def reducer_function(df):
+        #Write logic here of reducer
+        result = df.groupBy("key_column").agg({"value_column": "sum"})
+        return result
+
+
+    #Apply the reducer function
+    output_data = reducer_function(input_data) #output data jo hoga, woh ek dataframe hoga, toh yahan se hum easily xls, csv mein save kr skte hain
+
+    #Save output data 
+    output_data.write.csv("outfut file.csv")
+
+    #Stopping spark session
+    spark.stop()
+```
