@@ -31,7 +31,7 @@
     ```
 ## Reading a dataset and more
 
-    ```python
+```python
 
         df_pyspark = spark.read.csv("test1.csv")
         #another way to read this
@@ -41,8 +41,8 @@
 
         #prints the schema
         df_pyspark.printSchema()
-
-    ```
+        
+```
 
 ## Part 1 - Basics
 
