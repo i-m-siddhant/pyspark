@@ -3,6 +3,8 @@
 
 ## Introduction
 
+* Python Api for Apache Spark
+* Enables real-time, large-scale data processing in a distributed environment using python. 
 * Pyspark data frame similar to panda data frame
 * Apache spark is 100 times faster than mapReduce
 
@@ -19,6 +21,13 @@
         pd.read_csv('test1.csv') #file we created
     
     ```
+## Pyspark DataFrame
+
+* These are lazily evaluated.
+* Implemented on top of RDDs.
+* When spark transforms data, it does not immediately compute the transfromation but plans how to compute later. When actios such as collect() are explicitly called, the computation starts. 
+
+
 
 * To start spark session, do this 
 
@@ -197,3 +206,6 @@
 
 ### [A good article on difference between python and spark job](https://medium.com/@rahul.singh.ds20/convert-python-to-pyspark-1dbddcc562d8)
 
+## More from the documentation 
+
+* 
